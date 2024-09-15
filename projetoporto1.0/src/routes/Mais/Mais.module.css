@@ -1,0 +1,13 @@
+.conteudo {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and  (max-width: 830px) {
+
+    .conteudo {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

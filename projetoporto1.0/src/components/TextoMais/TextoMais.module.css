@@ -1,0 +1,42 @@
+.pagina {
+    width: 49%;
+    background-color: white; 
+}
+
+.ttConteudoD h1 {
+    margin-top: 40px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.textoE p{
+    margin: 30px;
+    font-size: 1.5vw;
+}
+
+@media screen and  (max-width: 830px) {
+    .pagina {
+        width: 100vw;
+        height: auto;
+    }
+
+    .ttConteudoD h1 {
+        margin-top: 10px;
+    }
+
+    .textoE p {
+        margin: 20px;
+    }
+}
+
+@media screen and  (max-width: 500px) {
+    .textoE p {
+        font-size: 14px;
+    }
+}
+
+@media screen and  (max-width: 400px) {
+    .textoE p {
+        font-size: 12px;
+    }
+}
