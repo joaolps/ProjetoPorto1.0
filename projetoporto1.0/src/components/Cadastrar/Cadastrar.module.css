@@ -1,0 +1,50 @@
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 174, 239, 0.3);
+    width: 49%;
+    height: 900px;
+}
+
+.cadastroInput {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+}
+
+.cadastroH1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.cadastroButton {
+    background-color: #000584;
+    color: white;
+    font-weight: bold;
+    font-size: 1.563vw;
+    border-radius: 5px;
+    border: solid 3px black;
+    min-height: 20px;
+    min-width: 60px;
+    margin-top: 20px;
+}
+
+.msgErro {
+    color: red;
+}
+
+@media screen and  (max-width: 650px) {
+    .cadastro {
+        width: 100vw;
+        height: auto;
+    }
+
+    .cadastroButton {
+        width: 21vw;
+        height: 40px;
+        font-size: 12px;
+    }
+}

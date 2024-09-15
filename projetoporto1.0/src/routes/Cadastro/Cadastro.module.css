@@ -1,0 +1,12 @@
+.conteudo {
+    display: flex;
+    width: 100vw;
+    background-image: url("/img/background.jpg");
+}
+
+@media screen and  (max-width: 650px) {
+
+    .conteudo{
+        flex-direction: column;
+    }
+}
