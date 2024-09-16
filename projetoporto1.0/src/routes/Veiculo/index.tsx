@@ -1,8 +1,10 @@
-export default function Cadastro() {
+import CadastroVeiculo from "../../components/CadastroVeiculo/CadastroVeiculo"
 
-  document.title = "Cadastro"
+export default function Veiculo() {
+
+  document.title = "Dados do Veículo"
+
   return (
-    <div>
-    </div>
+    <CadastroVeiculo />
   )
 }
