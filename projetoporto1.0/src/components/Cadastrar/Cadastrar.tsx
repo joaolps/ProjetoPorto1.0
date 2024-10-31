@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "./Cadastrar.module.css";
 
 export default function Cadastrar() {
-
     const [nome, setNome] = useState<string>("");
     const [cpf, setCpf] = useState<string>("");
     const [telefone, setTelefone] = useState<string>("");
@@ -67,11 +66,30 @@ export default function Cadastrar() {
     };
 
     const verificarErro = () => {
-      validarNome();
-      validarCpf();
-      validarTelefone();
-      validarEmail();
-      validarSenha();
+        const nomeValido = validarNome();
+        const cpfValido = validarCpf();
+        const telefoneValido = validarTelefone();
+        const emailValido = validarEmail();
+        const senhaValida = validarSenha();
+
+        if (nomeValido && cpfValido && telefoneValido && emailValido && senhaValida) {
+            handleCadastro();
+        }
+    };
+
+    // Função para armazenar dados de cadastro no localStorage
+    const handleCadastro = () => {
+        const usuario = {
+            nome,
+            cpf,
+            telefone,
+            email,
+            senha,
+        };
+
+        // Armazena os dados no localStorage
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+        alert("Cadastro realizado com sucesso!");
     };
 
     return (
@@ -147,7 +165,9 @@ export default function Cadastrar() {
                 </ul>
             </div>
             <div className={styles.button}>
-                <button onClick={verificarErro} className={styles.cadastroButton}>Cadastrar</button>
+                <button onClick={verificarErro} className={styles.cadastroButton}>
+                    Cadastrar
+                </button>
             </div>
         </section>
     );

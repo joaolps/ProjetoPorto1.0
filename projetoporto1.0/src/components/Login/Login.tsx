@@ -7,6 +7,7 @@ export default function Login() {
     const [senha, setSenha] = useState<string>('');
     const [validacaoEmail, setValidacaoEmail] = useState<boolean>(true);
     const [validacaoSenha, setValidacaoSenha] = useState<boolean>(true);
+    const [erroLogin, setErroLogin] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,12 +32,25 @@ export default function Login() {
         }
     };
 
-    const verificarErro = () => {
+    const handleLogin = () => {
         const emailValido = validarEmail();
         const senhaValida = validarSenha();
 
         if (emailValido && senhaValida) {
-            navigate('/veiculo');
+            const usuarioArmazenado = localStorage.getItem("usuario");
+
+            if (usuarioArmazenado) {
+                const usuario = JSON.parse(usuarioArmazenado);
+
+                if (usuario.email === email && usuario.senha === senha) {
+                    alert("Login realizado com sucesso!");
+                    navigate("/veiculo");
+                } else {
+                    setErroLogin(true);
+                }
+            } else {
+                setErroLogin(true);
+            }
         }
     };
 
@@ -69,10 +83,10 @@ export default function Login() {
                     </li>
                 </div>
             </ul>
+            {erroLogin && <p className={styles.msgErro}>Email ou senha incorretos.</p>}
             <div className={styles.button}>
-                <button onClick={verificarErro} className={styles.loginButton}>Conectar</button>
+                <button onClick={handleLogin} className={styles.loginButton}>Conectar</button>
             </div>
         </section>
     );
 }
-

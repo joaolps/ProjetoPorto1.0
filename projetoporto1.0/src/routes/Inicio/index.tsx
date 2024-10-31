@@ -1,5 +1,5 @@
 import Agendar from "../../components/Agendar/Agendar";
-import Manutencao from "../../components/Manutencao/Manutencao";
+import MenuProblema from "../../components/ProblemaConteudo/MenuProblema";
 import styles from "./Inicio.module.css"
 
 
@@ -9,7 +9,7 @@ export default function Inicio() {
 
   return (
     <section className={styles.conteudo}>
-      <Manutencao />
+      <MenuProblema />
       <Agendar />
     </section>
   )

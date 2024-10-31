@@ -1,11 +1,15 @@
+/* CSS para o contêiner principal da página */
 .conteudo {
     display: flex;
     justify-content: space-between;
+    width: 100vw; /* Ocupa a largura total da tela */
+    max-width: 100vw;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-@media screen and  (max-width: 850px) {
+@media screen and (max-width: 950px) {
     .conteudo {
-        display: flex;
         flex-direction: column;
         align-items: center;
         width: 100vw;
