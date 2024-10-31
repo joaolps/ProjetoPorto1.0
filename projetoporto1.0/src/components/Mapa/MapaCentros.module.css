@@ -1,0 +1,40 @@
+.mapContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px;
+}
+
+.listContainer {
+    width: 40%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.centroItem {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.centroItem h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.centroItem p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.centroItem a {
+    color: #0A7DA8;
+    text-decoration: none;
+}
+
+.map {
+    width: 60%;
+    height: 400px;
+}
