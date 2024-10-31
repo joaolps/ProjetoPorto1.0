@@ -1,24 +1,22 @@
-import styles from "./Cabecalho.module.css"
-import logoPorto from "/img/porto-seguro.png"
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
+import styles from './Cabecalho.module.css';
+import logo from '/img/porto-seguro.png'; 
+import userIcon from '/img/user-icon.png'; 
+import menuIcon from '/img/menu.png'; 
 
 export default function Cabecalho() {
   return (
-    <header>
-    <nav className={styles.container}>
-      <Link to="/" className={styles.logo}>
-        <img src={logoPorto} alt="logo da porto seguro" />
-      </Link>
-      <label htmlFor="pesquisa">
-        <input
-          type="text"
-          className={styles.searchTxt}
-          placeholder="Pesquisar..."
-        /></label>
-      <div className={styles.navCriar}>
-        <Link to="/cadastro">Conta</Link>
+    <header className={styles.header}>
+      <img src={logo} alt="Logo Porto Seguro" className={styles.logo} />
+      <div className={styles.rightSection}>
+        <nav className={styles.nav}>
+          <Link to="/" className={styles.navLink}>Home</Link>
+          <Link to="/contato" className={styles.navLink}>Contato</Link>
+          <Link to="/perto-de-voce" className={styles.navLink}>Perto de Voce</Link>
+        </nav>
+        <img src={userIcon} alt="User Icon" className={styles.icon} />
+        <img src={menuIcon} alt="Menu Icon" className={styles.menuIcon} />
       </div>
-    </nav>
-  </header>
-  )
+    </header>
+  );
 }
