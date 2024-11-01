@@ -9,6 +9,7 @@ import ChatBot from './routes/ChatBot'
 import Cadastro from './routes/Cadastro'
 import Veiculo from './routes/Veiculo'
 import Pagamento from './routes/Pagamento'
+import PertoDeVoce from './routes/PertoDeVoce';
 
 
 
@@ -20,6 +21,7 @@ const routes = createBrowserRouter([
     {path:"/cadastro" , element:<Cadastro />},
     {path:"/veiculo" , element:<Veiculo />},
     {path:"/pagamento" , element:<Pagamento />},
+    {path:"/pertodevoce" , element:<PertoDeVoce />},
   ]}
 ]) 
 

@@ -12,7 +12,7 @@ export default function Cabecalho() {
         <nav className={styles.nav}>
           <Link to="/" className={styles.navLink}>Home</Link>
           <Link to="/contato" className={styles.navLink}>Contato</Link>
-          <Link to="/perto-de-voce" className={styles.navLink}>Perto de Voce</Link>
+          <Link to="/pertodevoce" className={styles.navLink}>Perto de Voce</Link>
         </nav>
         <img src={userIcon} alt="User Icon" className={styles.icon} />
         <img src={menuIcon} alt="Menu Icon" className={styles.menuIcon} />
