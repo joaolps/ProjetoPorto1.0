@@ -1,70 +1,46 @@
-/* Estilização principal do menu */
+/* Problemas.module.css */
+
 .menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Define duas colunas */
-  gap: 10px; /* Ajusta o espaçamento entre os itens */
-  width: 100%; /* Ocupa toda a largura do contêiner */
-  max-width: 45vw; /* Limita a largura do menu */
-  background-color: white;
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  background-color: #0A7DA8;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilização de cada item de problema */
 .problemaItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 4px; /* Reduz o arredondamento das bordas */
-  padding: 5px; /* Reduz ainda mais o padding */
-  background-color: #ffffff;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
   color: #333;
-  width: 100%; /* Ocupa toda a largura da coluna */
-  height: 320px; /* Reduz um pouco a altura fixa */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 20%; /* Ajusta a largura para deixar as imagens menores */
+}
+
+.problemaImagem {
+  width: 100%;
+  height: auto;
+  max-height: 120px; /* Limita a altura das imagens */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
 }
 
 .problemaItem:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagem dentro de cada item de problema */
-.problemaImagem {
-  width: 100%; /* Aumenta a largura da imagem para ocupar toda a área */
-  height: 70%; /* Ajusta a altura relativa ao contêiner */
-  border-radius: 4px; /* Reduz o arredondamento da imagem */
-  margin-bottom: 6px;
-  object-fit: cover; /* Garante que a imagem se adapte sem distorção */
-}
-
-/* Nome do problema */
 .problemaNome {
-  font-size: 1vw;
+  font-size: 0.9em;
+  color: #333;
   font-weight: bold;
-  text-align: center;
-  color: #555;
-}
-
-/* Estilos responsivos para telas menores */
-@media screen and (max-width: 850px) {
-  .menu {
-      grid-template-columns: 1fr; /* Altera para uma coluna em telas menores */
-      gap: 8px;
-  }
-
-  .problemaItem {
-      height: 260px; /* Ajuste a altura para telas menores */
-  }
-
-  .problemaImagem {
-      width: 100%;
-      height: 65%; /* Ajusta a altura relativa ao contêiner em telas menores */
-  }
 }

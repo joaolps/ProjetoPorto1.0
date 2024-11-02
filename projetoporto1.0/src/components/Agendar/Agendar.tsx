@@ -1,17 +1,18 @@
 import styles from "./Agendar.module.css";
-import agendamento from "/img/adendamento.jpg";
+import agendamento from "/img/agendamento.jpg";
 import { Link } from "react-router-dom";
 
 export default function Agendar() {
   return (
-    <nav className={styles.clAgendamento}>
-      <div className={styles.agendamento}>
-        <div>
-        <img src={agendamento} alt="imagem do agendamento" />
-        <h1>AGENDE JÁ A SUA MANUTENÇÃO!</h1>
-        </div>
-        <Link to="/cadastro" className={styles.btnLink}>CLIQUE AQUI</Link>
+    <div className={styles.container}>
+      <div className={styles.leftSection}>
+        <h1>Agende já a sua manutenção!</h1>
+        <Link to="/cadastro" className={styles.btnLink}>Clique Aqui</Link>
       </div>
-    </nav>
-  )
+      <div className={styles.rightSection}>
+        <img src={agendamento} alt="imagem do agendamento" className={styles.image} />
+      </div>
+    </div>
+  );
 }
+

@@ -1,66 +1,61 @@
-.clAgendamento img {
-    width: 23vw;
-    margin-top: 10%;
-    border: 2px solid;
-}
-
-.clAgendamento {
-    width: 49%;
-    background-color: white;
+/* Estilos para o container principal */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Estilos para a seção de texto e botão à esquerda */
+  .leftSection {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.agendamento {
-    gap: 20px;
-}
-
-.clAgendamento h1 {
-    text-align: center;
-    font-size: 1.563vw;
-    margin-top: 6%;
-}
-
-.btnLink {
-    background-color: #0A7DA8;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .leftSection h1 {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .btnLink {
+    background-color: #f5f5f5;
     width: 150px;
     height: 40px;
-    border: 3px solid gray;
-    border-radius: 4px;
-    color: white;
+    border: none;
+    border-radius: 20px;
+    color: #333;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     text-decoration: none;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto;
-}
-
-@media screen and  (max-width: 850px) {
-    .clAgendamento {
-        height: auto;
-        width: 100vw;
-    }
-}
-
-@media screen and  (max-width: 670px) {
-    .agendamento {
-        display: flex;
-        align-items: center;
-    }
-
-    .clAgendamento img {
-        width: 50vw;
-    }
-}
-
-@media screen and  (max-width: 500px) {
-    .btnLink {
-        width: 20vw;
-        font-size: 12px;
-    }
-}
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2), inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .btnLink:hover {
+    transform: scale(1.05);
+  }
+  
+  .btnLink:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3), inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+    transform: scale(0.95);
+  }
+  
+  /* Estilos para a seção de imagem à direita */
+  .rightSection {
+    flex-shrink: 0;
+  }
+  
+  .image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
