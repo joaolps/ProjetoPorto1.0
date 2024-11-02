@@ -1,5 +1,6 @@
 import MapaCentros from "../../components/Mapa/MapaCentros";
 import styles from "./PertoDeVoce.module.css";
+import locationIcon from "/img/location.png";
 
 const centrosAutomotivos = [
   { id: 1, nome: "Centro Automotivo - Bela Vista", endereco: "R Pedroso, 394 - Bela Vista", cidade: "São Paulo" },
@@ -40,6 +41,7 @@ export default function PertoDeVoce() {
           <MapaCentros />
         </div>
       </div>
+      <img src={locationIcon} alt="Ícone de Localização" className={styles.locationIcon} />
     </div>
   );
 }
