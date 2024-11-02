@@ -1,46 +1,47 @@
-/* Problemas.module.css */
-
 .menu {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta para caber em toda a largura da tela */
+  gap: 20px; /* Aumenta o espaçamento entre os itens */
+  width: 100%; /* Ocupa toda a largura do contêiner */
+  max-width: 90vw; /* Define um limite para não ocupar completamente as laterais */
+  margin: 0 auto; /* Centraliza o conteúdo */
   background-color: #0A7DA8;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .problemaItem {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  background: white;
-  padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 10px;
+  background-color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;
   color: #333;
-  width: 20%; /* Ajusta a largura para deixar as imagens menores */
-}
-
-.problemaImagem {
-  width: 100%;
-  height: auto;
-  max-height: 120px; /* Limita a altura das imagens */
-  border-radius: 8px;
-  margin-bottom: 10px;
-  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .problemaItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.problemaImagem {
+  width: 100%; /* Garante que a imagem ocupe toda a largura do item */
+  height: 150px; /* Define uma altura fixa para as imagens */
+  border-radius: 6px;
+  object-fit: cover; /* Ajusta a imagem dentro do contêiner */
+  margin-bottom: 10px;
 }
 
 .problemaNome {
-  font-size: 0.9em;
-  color: #333;
+  font-size: 1rem;
   font-weight: bold;
+  color: #555;
 }

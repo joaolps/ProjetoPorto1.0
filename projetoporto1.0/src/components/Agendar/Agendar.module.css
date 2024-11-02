@@ -1,4 +1,3 @@
-/* Estilos para o container principal */
 .container {
     display: flex;
     align-items: center;
@@ -7,7 +6,6 @@
     padding: 20px;
   }
   
-  /* Estilos para a seção de texto e botão à esquerda */
   .leftSection {
     display: flex;
     flex-direction: column;
@@ -48,13 +46,13 @@
     transform: scale(0.95);
   }
   
-  /* Estilos para a seção de imagem à direita */
+
   .rightSection {
     flex-shrink: 0;
   }
   
   .image {
-    width: 300px;
+    width: 500px;
     height: auto;
     border-radius: 10px;
   }

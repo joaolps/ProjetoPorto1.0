@@ -77,7 +77,6 @@ export default function Cadastrar() {
         }
     };
 
-    // Função para armazenar dados de cadastro no localStorage
     const handleCadastro = () => {
         const usuario = {
             nome,
@@ -87,7 +86,6 @@ export default function Cadastrar() {
             senha,
         };
 
-        // Armazena os dados no localStorage
         localStorage.setItem("usuario", JSON.stringify(usuario));
         alert("Cadastro realizado com sucesso!");
     };
