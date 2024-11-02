@@ -14,7 +14,6 @@ export default function Rodape() {
         <img className={styles.duvidas} src={duvida} alt="dúvidas" />
       </Link>
     </div>
-    <Link to="/autores" className={styles.autores}>AUTORES</Link>
     <nav>
       <ul>
         <li className={styles.whatsapp}>

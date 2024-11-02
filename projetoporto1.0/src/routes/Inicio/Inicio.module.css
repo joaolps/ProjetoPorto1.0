@@ -86,7 +86,7 @@ body {
     max-width: 1200px;
 }
 
-/* Responsividade para telas menores */
+
 @media (max-width: 850px) {
     .agendamentoSection {
         flex-direction: column;

@@ -11,7 +11,7 @@ export default function Cabecalho() {
       <div className={styles.rightSection}>
         <nav className={styles.nav}>
           <Link to="/" className={styles.navLink}>Home</Link>
-          <Link to="/contato" className={styles.navLink}>Contato</Link>
+          <Link to="/autores" className={styles.navLink}>Autores</Link>
           <Link to="/pertodevoce" className={styles.navLink}>Perto de Voce</Link>
         </nav>
         <img src={userIcon} alt="User Icon" className={styles.icon} />
