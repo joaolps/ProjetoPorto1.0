@@ -20,7 +20,7 @@ export default function Pagamento() {
             }
         }
         alert("Pagamento realizado com sucesso!");
-        navigate("/");
+        navigate("/"); 
     };
 
     return (
@@ -42,8 +42,8 @@ export default function Pagamento() {
             </div>
 
             {(metodoPagamento === "credito" || metodoPagamento === "debito") && (
-                <>
-                    <div className={styles.formGroup}>
+                <div className={styles.cartaoInfo}>
+                    <div className={styles.cartaoColuna}>
                         <label>Número do Cartão:</label>
                         <input
                             type="text"
@@ -54,7 +54,7 @@ export default function Pagamento() {
                         />
                     </div>
 
-                    <div className={styles.formGroup}>
+                    <div className={styles.cartaoColuna}>
                         <label>Vencimento:</label>
                         <input
                             type="month"
@@ -65,7 +65,7 @@ export default function Pagamento() {
                         />
                     </div>
 
-                    <div className={styles.formGroup}>
+                    <div className={styles.cartaoColuna}>
                         <label>CVV:</label>
                         <input
                             type="text"
@@ -76,7 +76,7 @@ export default function Pagamento() {
                         />
                     </div>
 
-                    <div className={styles.formGroup}>
+                    <div className={styles.cartaoColuna}>
                         <label>Nome do Titular:</label>
                         <input
                             type="text"
@@ -87,7 +87,7 @@ export default function Pagamento() {
                         />
                     </div>
 
-                    <div className={styles.formGroup}>
+                    <div className={styles.cartaoColuna}>
                         <label>CPF do Titular:</label>
                         <input
                             type="text"
@@ -97,7 +97,7 @@ export default function Pagamento() {
                             className={styles.input}
                         />
                     </div>
-                </>
+                </div>
             )}
 
             {metodoPagamento === "credito" && (
@@ -121,6 +121,5 @@ export default function Pagamento() {
                 Confirmar Pagamento
             </button>
         </section>
-    );
+    );
 }
-
