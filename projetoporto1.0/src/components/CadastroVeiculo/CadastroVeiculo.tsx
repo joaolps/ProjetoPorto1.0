@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Importa o hook para redirecionamento
 import styles from "./CadastroVeiculo.module.css";
 
 interface VeiculoInfo {
@@ -13,6 +14,7 @@ export default function CadastroVeiculo() {
     const [veiculoInfo, setVeiculoInfo] = useState<VeiculoInfo | null>(null);
     const [erro, setErro] = useState<string | null>(null);
     const [problema, setProblema] = useState<string>("");
+    const navigate = useNavigate(); // Hook para redirecionamento
 
     const buscarVeiculo = async () => {
         setErro(null); // Limpa qualquer erro anterior
@@ -26,7 +28,7 @@ export default function CadastroVeiculo() {
                 const marca = data.Results.find((item: { Variable: string }) => item.Variable === "Make")?.Value || "N/A";
                 const modelo = data.Results.find((item: { Variable: string }) => item.Variable === "Model")?.Value || "N/A";
                 const ano = data.Results.find((item: { Variable: string }) => item.Variable === "Model Year")?.Value || "N/A";
-                
+
                 setVeiculoInfo({ marca, modelo, ano });
             } else {
                 setErro("Nenhuma informação foi encontrada para esse VIN.");
@@ -51,6 +53,9 @@ export default function CadastroVeiculo() {
 
         localStorage.setItem("veiculo", JSON.stringify(veiculo));
         alert("Cadastro de veículo realizado com sucesso!");
+
+        // Redireciona para a página de confirmação de agendamento
+        navigate("/confirmacao-agendamento");
     };
 
     return (

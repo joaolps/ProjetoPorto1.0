@@ -3,18 +3,19 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App'
-import Inicio from './routes/Inicio'
-import Autores from './routes/Autores'
-import ChatBot from './routes/ChatBot'
-import Veiculo from './routes/Veiculo'
-import Pagamento from './routes/Pagamento'
-import PertoDeVoce from './routes/PertoDeVoce'
 import AlinhamentoBalanceamento from "./components/AlinhamentoBalanceamento/AlinhamentoBalanceamento"
+import Cadastrar from './components/Cadastrar/Cadastrar'
+import ConfirmacaoAgendamento from './components/ConfirmacaoAgendamento/ConfirmacaoAgendamento'
 import DiscosPastilhasFreios from "./components/DiscosPastilhasFreios/DiscosPastilhasFreios"
 import Embreagem from "./components/Embreagem/Embreagem"
 import FiltrosVelas from "./components/FiltrosVelas/FiltrosVelas"
-import Cadastrar from './components/Cadastrar/Cadastrar'
-import Login from './components/Login/Login'  
+import Login from './components/Login/Login'
+import Autores from './routes/Autores'
+import ChatBot from './routes/ChatBot'
+import Inicio from './routes/Inicio'
+import Pagamento from './routes/Pagamento'
+import PertoDeVoce from './routes/PertoDeVoce'
+import Veiculo from './routes/Veiculo'
 
 const routes = createBrowserRouter([
   {
@@ -30,7 +31,8 @@ const routes = createBrowserRouter([
       { path: "/problemas/embreagem", element: <Embreagem /> },
       { path: "/problemas/filtros-velas", element: <FiltrosVelas /> },
       { path: "/cadastrar", element: <Cadastrar /> },
-      { path: "/login", element: <Login /> }
+      { path: "/login", element: <Login /> },
+      { path: "/confirmacao-agendamento", element: <ConfirmacaoAgendamento /> }
     ]
   }
 ])
