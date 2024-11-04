@@ -64,5 +64,19 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.locationIcon {
+  width: 400px; 
+  height: 400px; 
+  position: absolute;
+  left: 20px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  color: rgba(128, 128, 128, 0.6); 
+  opacity: 0.6; 
+}
+
+
+
+
 
 
