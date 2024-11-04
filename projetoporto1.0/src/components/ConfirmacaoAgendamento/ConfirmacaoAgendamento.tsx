@@ -41,9 +41,9 @@ export default function ConfirmacaoAgendamento() {
             return;
         }
 
-        // Aqui você pode salvar ou enviar os dados do agendamento para o backend
+
         alert("Manutenção agendada com sucesso!");
-        navigate("/"); // Redireciona para a página inicial ou outra página de confirmação
+        navigate("/");
     };
 
     return (

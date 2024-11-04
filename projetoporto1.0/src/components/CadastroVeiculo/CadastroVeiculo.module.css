@@ -96,7 +96,7 @@
     background-color: #007acc;
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
     .cadastroVeiculo {
         padding: 2rem 1rem;

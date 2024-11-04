@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importa o hook para redirecionamento
+import { useNavigate } from "react-router-dom";
 import styles from "./CadastroVeiculo.module.css";
 
 interface VeiculoInfo {
     marca: string;
     modelo: string;
     ano: string;
-    [key: string]: string; // Permite campos adicionais da API
+    [key: string]: string;
 }
 
 export default function CadastroVeiculo() {
@@ -14,11 +14,11 @@ export default function CadastroVeiculo() {
     const [veiculoInfo, setVeiculoInfo] = useState<VeiculoInfo | null>(null);
     const [erro, setErro] = useState<string | null>(null);
     const [problema, setProblema] = useState<string>("");
-    const navigate = useNavigate(); // Hook para redirecionamento
+    const navigate = useNavigate();
 
     const buscarVeiculo = async () => {
-        setErro(null); // Limpa qualquer erro anterior
-        setVeiculoInfo(null); // Limpa qualquer informação anterior
+        setErro(null);
+        setVeiculoInfo(null);
 
         try {
             const response = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${vin}?format=json&api_key=b685120c2d35`);
@@ -54,7 +54,7 @@ export default function CadastroVeiculo() {
         localStorage.setItem("veiculo", JSON.stringify(veiculo));
         alert("Cadastro de veículo realizado com sucesso!");
 
-        // Redireciona para a página de confirmação de agendamento
+
         navigate("/confirmacao-agendamento");
     };
 
