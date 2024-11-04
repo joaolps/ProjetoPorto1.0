@@ -10,6 +10,10 @@ import Cadastro from './routes/Cadastro'
 import Veiculo from './routes/Veiculo'
 import Pagamento from './routes/Pagamento'
 import PertoDeVoce from './routes/PertoDeVoce';
+import AlinhamentoBalanceamento from "./components/AlinhamentoBalanceamento/AlinhamentoBalanceamento";
+import DiscosPastilhasFreios from "./components/DiscosPastilhasFreios/DiscosPastilhasFreios";
+import Embreagem from "./components/Embreagem/Embreagem";
+import FiltrosVelas from "./components/FiltrosVelas/FiltrosVelas";
 
 
 
@@ -22,6 +26,10 @@ const routes = createBrowserRouter([
     {path:"/veiculo" , element:<Veiculo />},
     {path:"/pagamento" , element:<Pagamento />},
     {path:"/pertodevoce" , element:<PertoDeVoce />},
+    { path: "/problemas/alinhamento", element: <AlinhamentoBalanceamento /> },
+    { path: "/problemas/freios", element: <DiscosPastilhasFreios /> },
+    { path: "/problemas/embreagem", element: <Embreagem /> },
+    { path: "/problemas/filtros-velas", element: <FiltrosVelas /> },
   ]}
 ]) 
 

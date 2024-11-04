@@ -3,14 +3,14 @@ import DiscosPastilhasFreios from "../../components/DiscosPastilhasFreios/Discos
 import Embreagem from "../../components/Embreagem/Embreagem";
 import FiltrosVelas from "../../components/FiltrosVelas/FiltrosVelas";
 
-
 export default function Problemas() {
-
-    document.title = "Problemas"
   return (
-    <AlinhamentoBalanceamento/>;
-    <DiscosPastilhasFreios/>;
-    <Embreagem/>;
-    <FiltrosVelas/>;
+    <div>
+      <h1>Problemas Automotivos</h1>
+      <AlinhamentoBalanceamento />
+      <DiscosPastilhasFreios />
+      <Embreagem />
+      <FiltrosVelas />
+    </div>
   );
 }
