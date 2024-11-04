@@ -35,15 +35,15 @@ export default function ConfirmacaoAgendamento() {
         "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"
     ];
 
-    const handleConfirmacao = () => {
+    const confirmarAgendamento = () => {
         if (!dataSelecionada || !horarioSelecionado) {
             alert("Por favor, selecione uma data e horário.");
             return;
         }
 
-
+        // Código para confirmar o agendamento
         alert("Manutenção agendada com sucesso!");
-        navigate("/");
+        navigate("/pagamento"); // Redireciona para a página de pagamento após a confirmação
     };
 
     return (
@@ -82,7 +82,9 @@ export default function ConfirmacaoAgendamento() {
                         ))}
                     </select>
 
-                    <button onClick={handleConfirmacao} className={styles.confirmarButton}>Confirmar Agendamento</button>
+                    <button onClick={confirmarAgendamento} className={styles.confirmarButton}>
+                        Confirmar Agendamento
+                    </button>
                 </div>
             ) : (
                 <p>Carregando dados do cliente e veículo...</p>

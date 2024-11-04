@@ -10,10 +10,10 @@ import DiscosPastilhasFreios from "./components/DiscosPastilhasFreios/DiscosPast
 import Embreagem from "./components/Embreagem/Embreagem"
 import FiltrosVelas from "./components/FiltrosVelas/FiltrosVelas"
 import Login from './components/Login/Login'
+import Pagamento from './components/PagamentoConteudo/Pagamento'
 import Autores from './routes/Autores'
 import ChatBot from './routes/ChatBot'
 import Inicio from './routes/Inicio'
-import Pagamento from './routes/Pagamento'
 import PertoDeVoce from './routes/PertoDeVoce'
 import Veiculo from './routes/Veiculo'
 
