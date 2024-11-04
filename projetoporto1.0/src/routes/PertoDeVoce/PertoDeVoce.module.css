@@ -1,13 +1,13 @@
 .container {
   display: flex;
-  align-items: flex-start; /* Alinha o texto e o conteúdo do mapa no topo */
+  align-items: flex-start; 
   padding: 2rem;
-  gap: 2rem; /* Espaçamento entre o texto e o conteúdo */
+  gap: 2rem; 
 }
 
 .titleSection {
   flex: 1;
-  max-width: 25%; /* Limita a largura da seção de texto */
+  max-width: 25%; 
   text-align: left;
 }
 

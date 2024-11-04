@@ -3,87 +3,50 @@ import styles from "./Cadastrar.module.css";
 
 export default function Cadastrar() {
     const [nome, setNome] = useState<string>("");
+    const [dataNascimento, setDataNascimento] = useState<string>("");
     const [cpf, setCpf] = useState<string>("");
     const [telefone, setTelefone] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
+    const [cep, setCep] = useState<string>("");
+    const [rua, setRua] = useState<string>("");
+    const [bairro, setBairro] = useState<string>("");
+    const [cidade, setCidade] = useState<string>("");
+    const [numero, setNumero] = useState<string>("");
+    const [complemento, setComplemento] = useState<string>("");
 
-    const [validacaoNome, setValidacaoNome] = useState<boolean>(true);
-    const [validacaoCpf, setValidacaoCpf] = useState<boolean>(true);
-    const [validacaoTelefone, setValidacaoTelefone] = useState<boolean>(true);
-    const [validacaoEmail, setValidacaoEmail] = useState<boolean>(true);
-    const [validacaoSenha, setValidacaoSenha] = useState<boolean>(true);
-
-    const validarNome = (): boolean => {
-        if (nome.length > 3) {
-            setValidacaoNome(true);
-            return true;
-        } else {
-            setValidacaoNome(false);
-            return false;
-        }
-    };
-
-    const validarCpf = (): boolean => {
-        if (cpf.length === 11) {
-            setValidacaoCpf(true);
-            return true;
-        } else {
-            setValidacaoCpf(false);
-            return false;
-        }
-    };
-
-    const validarTelefone = (): boolean => {
-        if (telefone.length >= 10) {
-            setValidacaoTelefone(true);
-            return true;
-        } else {
-            setValidacaoTelefone(false);
-            return false;
-        }
-    };
-
-    const validarEmail = (): boolean => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(email)) {
-            setValidacaoEmail(true);
-            return true;
-        } else {
-            setValidacaoEmail(false);
-            return false;
-        }
-    };
-
-    const validarSenha = (): boolean => {
-        if (senha.length >= 8) {
-            setValidacaoSenha(true);
-            return true;
-        } else {
-            setValidacaoSenha(false);
-            return false;
-        }
-    };
-
-    const verificarErro = () => {
-        const nomeValido = validarNome();
-        const cpfValido = validarCpf();
-        const telefoneValido = validarTelefone();
-        const emailValido = validarEmail();
-        const senhaValida = validarSenha();
-
-        if (nomeValido && cpfValido && telefoneValido && emailValido && senhaValida) {
-            handleCadastro();
+    const buscarCep = async () => {
+        if (cep.length === 8) {
+            try {
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const data = await response.json();
+                if (data.erro) {
+                    alert("CEP inválido");
+                } else {
+                    setRua(data.logradouro);
+                    setBairro(data.bairro);
+                    setCidade(data.localidade);
+                }
+            } catch {
+                alert("Erro ao buscar o CEP.");
+            }
         }
     };
 
     const handleCadastro = () => {
+        if (!nome || !dataNascimento || !cpf || !telefone || !email || !senha || !cep || !rua || !bairro || !cidade || !numero) {
+            alert("Por favor, preencha todos os campos obrigatórios.");
+            return;
+        }
+
         const usuario = {
             nome,
+            dataNascimento,
             cpf,
             telefone,
             email,
             senha,
+            endereco: { cep, rua, bairro, cidade, numero, complemento },
         };
 
         localStorage.setItem("usuario", JSON.stringify(usuario));
@@ -92,81 +55,63 @@ export default function Cadastrar() {
 
     return (
         <section className={styles.cadastro}>
-            <div>
-                <h1 className={styles.cadastroH1}>CADASTRO</h1>
+            <h1>Cadastro de Usuário</h1>
+            <div className={styles.formContainer}>
+                <div className={styles.formSection}>
+                    <div className={styles.formGroup}>
+                        <label>Nome</label>
+                        <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Digite seu nome" />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Data de Nascimento</label>
+                        <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>CPF</label>
+                        <input type="text" maxLength={11} value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF" />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Telefone</label>
+                        <input type="tel" value={telefone} onChange={(e) => setTelefone(e.target.value)} placeholder="Digite seu telefone" />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Email</label>
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite seu email" />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Senha</label>
+                        <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Digite sua senha" />
+                    </div>
+                </div>
+
+                <div className={styles.formSection}>
+                    <div className={styles.formGroup}>
+                        <label>CEP</label>
+                        <input type="text" maxLength={8} value={cep} onChange={(e) => setCep(e.target.value)} onBlur={buscarCep} placeholder="Digite seu CEP" />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Rua</label>
+                        <input type="text" value={rua} onChange={(e) => setRua(e.target.value)} readOnly />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Bairro</label>
+                        <input type="text" value={bairro} onChange={(e) => setBairro(e.target.value)} readOnly />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Cidade</label>
+                        <input type="text" value={cidade} onChange={(e) => setCidade(e.target.value)} readOnly />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Número</label>
+                        <input type="text" value={numero} onChange={(e) => setNumero(e.target.value)} placeholder="Número da residência" />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label>Complemento (opcional)</label>
+                        <input type="text" value={complemento} onChange={(e) => setComplemento(e.target.value)} placeholder="Complemento" />
+                    </div>
+                </div>
             </div>
-            <div className={styles.searchBoxL}>
-                <ul>
-                    <li>
-                        <h2>Nome:</h2>
-                        <input
-                            type="text"
-                            className={styles.cadastroInput}
-                            placeholder="Digite seu nome"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                        />
-                        {!validacaoNome && <p className={styles.msgErro}>Nome muito curto.</p>}
-                    </li>
-                    <li>
-                        <h2>Data de Nascimento:</h2>
-                        <input
-                            type="date"
-                            className={styles.cadastroInput}
-                            placeholder="Digite sua data de nascimento"
-                        />
-                    </li>
-                    <li>
-                        <h2>CPF:</h2>
-                        <input
-                            type="text"
-                            className={styles.cadastroInput}
-                            placeholder="Digite seu CPF"
-                            value={cpf}
-                            onChange={(e) => setCpf(e.target.value)}
-                        />
-                        {!validacaoCpf && <p className={styles.msgErro}>CPF deve ter 11 dígitos.</p>}
-                    </li>
-                    <li>
-                        <h2>Telefone:</h2>
-                        <input
-                            type="text"
-                            className={styles.cadastroInput}
-                            placeholder="Digite seu telefone"
-                            value={telefone}
-                            onChange={(e) => setTelefone(e.target.value)}
-                        />
-                        {!validacaoTelefone && <p className={styles.msgErro}>Telefone inválido.</p>}
-                    </li>
-                    <li>
-                        <h2>Email:</h2>
-                        <input
-                            type="text"
-                            className={styles.cadastroInput}
-                            placeholder="Digite seu email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        {!validacaoEmail && <p className={styles.msgErro}>Email inválido.</p>}
-                    </li>
-                    <li>
-                        <h2>Senha:</h2>
-                        <input
-                            type="password"
-                            className={styles.cadastroInput}
-                            placeholder="Digite sua senha"
-                            value={senha}
-                            onChange={(e) => setSenha(e.target.value)}
-                        />
-                        {!validacaoSenha && <p className={styles.msgErro}>A senha deve ter pelo menos 8 caracteres.</p>}
-                    </li>
-                </ul>
-            </div>
-            <div className={styles.button}>
-                <button onClick={verificarErro} className={styles.cadastroButton}>
-                    Cadastrar
-                </button>
-            </div>
+            <button className={styles.cadastroButton} onClick={handleCadastro}>Cadastrar</button>
         </section>
     );
 }

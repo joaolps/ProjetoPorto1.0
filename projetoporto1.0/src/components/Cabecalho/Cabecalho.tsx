@@ -14,7 +14,9 @@ export default function Cabecalho() {
           <Link to="/autores" className={styles.navLink}>Autores</Link>
           <Link to="/pertodevoce" className={styles.navLink}>Perto de Voce</Link>
         </nav>
-        <img src={userIcon} alt="User Icon" className={styles.icon} />
+        <Link to="/cadastrar">
+          <img src={userIcon} alt="User Icon" className={styles.icon} />
+        </Link>
         <img src={menuIcon} alt="Menu Icon" className={styles.menuIcon} />
       </div>
     </header>
