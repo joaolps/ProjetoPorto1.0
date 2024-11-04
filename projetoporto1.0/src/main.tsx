@@ -13,7 +13,8 @@ import AlinhamentoBalanceamento from "./components/AlinhamentoBalanceamento/Alin
 import DiscosPastilhasFreios from "./components/DiscosPastilhasFreios/DiscosPastilhasFreios"
 import Embreagem from "./components/Embreagem/Embreagem"
 import FiltrosVelas from "./components/FiltrosVelas/FiltrosVelas"
-import Cadastrar from './components/Cadastrar/Cadastrar'  
+import Cadastrar from './components/Cadastrar/Cadastrar'
+import Login from './components/Login/Login'  
 
 const routes = createBrowserRouter([
   {
@@ -28,7 +29,8 @@ const routes = createBrowserRouter([
       { path: "/problemas/freios", element: <DiscosPastilhasFreios /> },
       { path: "/problemas/embreagem", element: <Embreagem /> },
       { path: "/problemas/filtros-velas", element: <FiltrosVelas /> },
-      { path: "/cadastrar", element: <Cadastrar /> }  
+      { path: "/cadastrar", element: <Cadastrar /> },
+      { path: "/login", element: <Login /> }
     ]
   }
 ])

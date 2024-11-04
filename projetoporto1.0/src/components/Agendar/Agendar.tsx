@@ -7,7 +7,7 @@ export default function Agendar() {
     <div className={styles.container}>
       <div className={styles.leftSection}>
         <h1>Agende já a sua manutenção!</h1>
-        <Link to="/cadastro" className={styles.btnLink}>Clique Aqui</Link>
+        <Link to="/login" className={styles.btnLink}>Clique Aqui</Link> {/* Ajustado para levar ao login */}
       </div>
       <div className={styles.rightSection}>
         <img src={agendamento} alt="imagem do agendamento" className={styles.image} />
@@ -15,4 +15,5 @@ export default function Agendar() {
     </div>
   );
 }
+
 

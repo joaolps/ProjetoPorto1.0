@@ -13,23 +13,15 @@ export default function Login() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const validarEmail = (): boolean => {
-        if (emailRegex.test(email)) {
-            setValidacaoEmail(true);
-            return true;
-        } else {
-            setValidacaoEmail(false);
-            return false;
-        }
+        const isValid = emailRegex.test(email);
+        setValidacaoEmail(isValid);
+        return isValid;
     };
 
     const validarSenha = (): boolean => {
-        if (senha.length >= 8) {
-            setValidacaoSenha(true);
-            return true;
-        } else {
-            setValidacaoSenha(false);
-            return false;
-        }
+        const isValid = senha.length >= 8;
+        setValidacaoSenha(isValid);
+        return isValid;
     };
 
     const handleLogin = () => {
@@ -56,37 +48,33 @@ export default function Login() {
 
     return (
         <section className={styles.login}>
-            <h1 className={styles.loginH1}>LOG-IN</h1>
-            <ul>
-                <div className={styles.searchBoxL}>
-                    <li>
-                        <h2>Email:</h2>
-                        <input 
-                            type="text" 
-                            className={styles.loginInput} 
-                            placeholder="Digite seu email" 
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        {!validacaoEmail && <p className={styles.msgErro}>Email inválido</p>}
-                    </li>
-                    <li>
-                        <h2>Senha:</h2>
-                        <input 
-                            type="password" 
-                            className={styles.loginInput} 
-                            placeholder="Digite sua senha" 
-                            value={senha}
-                            onChange={(e) => setSenha(e.target.value)}
-                        />
-                        {!validacaoSenha && <p className={styles.msgErro}>A senha deve ter pelo menos 8 caracteres</p>}
-                    </li>
+            <h1 className={styles.loginH1}>Login</h1>
+            <div className={styles.formContainer}>
+                <div className={styles.formGroup}>
+                    <label>Email:</label>
+                    <input 
+                        type="text" 
+                        className={`${styles.loginInput} ${!validacaoEmail ? styles.errorInput : ''}`}
+                        placeholder="Digite seu email" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    {!validacaoEmail && <p className={styles.msgErro}>Email inválido</p>}
                 </div>
-            </ul>
-            {erroLogin && <p className={styles.msgErro}>Email ou senha incorretos.</p>}
-            <div className={styles.button}>
-                <button onClick={handleLogin} className={styles.loginButton}>Conectar</button>
+                <div className={styles.formGroup}>
+                    <label>Senha:</label>
+                    <input 
+                        type="password" 
+                        className={`${styles.loginInput} ${!validacaoSenha ? styles.errorInput : ''}`}
+                        placeholder="Digite sua senha" 
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
+                    />
+                    {!validacaoSenha && <p className={styles.msgErro}>A senha deve ter pelo menos 8 caracteres</p>}
+                </div>
             </div>
+            {erroLogin && <p className={styles.msgErro}>Email ou senha incorretos.</p>}
+            <button onClick={handleLogin} className={styles.loginButton}>Conectar</button>
         </section>
     );
 }
